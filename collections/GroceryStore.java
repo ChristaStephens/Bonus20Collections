@@ -13,7 +13,7 @@ import java.util.Set;
 public class GroceryStore {
 
 	public static void main(String[] args) {
-		// Project goal: Creating a local Kroger: 
+		// Project goal: Creating a local Kroger:
 		// The Christa Kroger, prices are decent but she's not lol
 		// Use Map: Key is Name, Value is Price
 		// Shopping cart is List of what they ordered
@@ -36,49 +36,47 @@ public class GroceryStore {
 		krogers.put("egg noodles", .89);
 		krogers.put("bananas", 1.49);
 
-
 		for (Map.Entry<String, Double> entry : krogers.entrySet()) {
 			// krogers and <String,Double> is the only things that change in this loop
 			System.out.println("" + entry.getKey() + "   $" + entry.getValue());
 		}
 
 		// user picks items
-		
+
 		Scanner scnr = new Scanner(System.in);
-		List<String> carts = new ArrayList<>(); 
-		List<Double>price = new ArrayList<>();
-		boolean isContinue; //string ==y declaring a variable to is continue.
+		List<String> carts = new ArrayList<>();
+		List<Double> price = new ArrayList<>();
+		boolean isContinue; // string ==y declaring a variable to is continue.
 		do {
 			System.out.println("What would you like to add?");
-			String cart =scnr.nextLine();
+			String cart = scnr.nextLine();
 			carts.add(cart);
 			price.add(krogers.get(cart));
-			//price.add(cart);
-			//plural is on the left side and singular is on the right for both list and set
-			//thingsSet.add(thing);// set
-			
-			if (krogers.equals(carts) ) {//validations, making sure they enter the right menu items
+			// price.add(cart);
+			// plural is on the left side and singular is on the right for both list and set
+			// thingsSet.add(thing);// set
+
+			if (krogers.get(cart) == null) {
+				System.out.println("That item is not available at this time, please try again");
+			} else {
 				System.out.println("Item added.");
-			}//else { System.out.println("That item is not available at this time, please try again");
-			//} not quite sure what I'm doing wrong here but it's not working.
-			
+			}
+
 			System.out.println("Do you want to add another (y/n)");
 			isContinue = scnr.nextLine().toLowerCase().startsWith("y");
-		} while (isContinue == true); //then place the variable here string variable "y"
-		
-		System.out.println("List " + carts);
-		
-		System.out.println("Price " + price);
-		//System.out.println(krogers(carts-1);
-		}
-		
+		} while (isContinue == true); // then place the variable here string variable "y"
 
+		System.out.println("List " + carts);
+
+		System.out.println("Price " + price);
+		// System.out.println(krogers(carts-1);
+	}
 
 	private static String greet()// doesn't always have to have a parameter!
 	{
 		return "Welcome to Christa's Kroger!\nTake a look at our store and add items to your shopping cart as needed. "
-				+ "\n"+"Items  "+" Price" +"\n"+"====="+"   "+"=====";
-		//formating is shotty but it works :-/
+				+ "\n" + "Items  " + " Price" + "\n" + "=====" + "   " + "=====";
+		// formating is shotty but it works :-/
 		// start writing the return first, or thinking of what you want the return to
 		// be.
 		// then think of what you want to name the method, ex: 'greet'
